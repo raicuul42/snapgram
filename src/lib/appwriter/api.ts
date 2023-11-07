@@ -47,7 +47,7 @@ export async function saveUserToDB(user: {
   try {
     const newUser = await databases.createDocument(
       appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
+      appwriteConfig.usersCollectionId,
       ID.unique(),
       user
     );
@@ -89,7 +89,7 @@ export async function getCurrentUser() {
 
     const currentUser = await databases.listDocuments(
       appwriteConfig.databaseId,
-      appwriteConfig.userCollectionId,
+      appwriteConfig.usersCollectionId,
       [Query.equal("accountId", currentAccount.$id)]
     );
 
